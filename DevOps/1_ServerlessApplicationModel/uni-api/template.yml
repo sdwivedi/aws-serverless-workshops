@@ -23,7 +23,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       FunctionName: 'uni-api-list'
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       CodeUri: app
       Handler: list.lambda_handler
       Description: List Unicorns
@@ -49,5 +49,5 @@ Resources:
           Action: sts:AssumeRole
       Path: /
       ManagedPolicyArns:
-        -  arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/CodeStar_${ProjectId}_PermissionsBoundary'
